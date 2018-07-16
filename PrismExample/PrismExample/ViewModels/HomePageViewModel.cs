@@ -1,15 +1,15 @@
-﻿using Prism.Mvvm;
+﻿using Prism.Commands;
+using Prism.Mvvm;
 using Prism.Navigation;
-using PrismExample.Models;
-using PrismExample.Services;
-using System.Collections.ObjectModel;
+using Prism.Services;
+using System.Windows.Input;
 
 namespace PrismExample.ViewModels
 {
-    public class HomePageViewModel : BindableBase, INavigatedAware
+    public class HomePageViewModel : BindableBase
     {
-        INavigationService _navigationService;
-        private readonly PostsService _postsService;
+        INavigationService _navigationService; // Used to navigate from one page to another
+        IPageDialogService _pageDialogService; // Used to display alert dialogs
 
         private string _title;
         public string Title
@@ -18,48 +18,32 @@ namespace PrismExample.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private ObservableCollection<Post> _posts;
-        public ObservableCollection<Post> Posts
-        {
-            get { return _posts; }
-            set { SetProperty(ref _posts, value); }
-        }
+        public ICommand DisplayAlertCommand { get; set; } // Used for button clicks
+        public ICommand GotoPostsPageCommand { get; set; }
 
-        private bool _isBusy; // Loader
-        public bool IsBusy
-        {
-            get { return _isBusy; }
-            set { SetProperty(ref _isBusy, value); }
-        }
-
-        public HomePageViewModel(INavigationService navigationService, PostsService postsService)
+        public HomePageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             _navigationService = navigationService;
-            _postsService = postsService;
+            _pageDialogService = pageDialogService;
 
-            GetPosts();
-            IsBusy = true;
+            Title = "This is an example demonstrating Prism framework in Xamarin.Forms";
+
+            DisplayAlertCommand = new DelegateCommand(DisplayAlert); // Assigning a function to command
+
+            GotoPostsPageCommand = new DelegateCommand(GotoPostsPage); 
         }
 
-        private async void GetPosts()
+        async void DisplayAlert()
         {
-            var posts = await _postsService.GetPostsAsync(); // Retrieving list of data from API
-            Posts = posts; // Assigning it to a binding property for binding data to the list in xaml
-            IsBusy = false; // Once the data is retrieved stop the loader
+            await _pageDialogService.DisplayAlertAsync("Display alert using Prism", "Hello!", "Ok");
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
+        async void GotoPostsPage()
         {
-        }
+            var parameter = new NavigationParameters();
+            parameter.Add("MyParam", "Example to call an API service to get list of data"); // Adding parameters
 
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            var element = parameters["MyParam"]; // Receiving the parameters
-
-            if (element != null)
-            {
-                Title = element.ToString();
-            }
+            await _navigationService.NavigateAsync("PostsPage", parameter); // Passing parameters to a page
         }
     }
 }

@@ -1,19 +1,12 @@
 ﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace PrismExample.Views
+namespace PrismExample
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : ContentPage
+    public partial class HomePage : ContentPage
 	{
-		public HomePage ()
+		public HomePage()
 		{
-			InitializeComponent ();
+			InitializeComponent();
 		}
-
-        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-
-        }
-    }
+	}
 }

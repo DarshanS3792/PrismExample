@@ -13,7 +13,46 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\HomePage.xaml">
+    <Compile Update="Views\CustomMasterDetailPage.xaml.cs">
+      <DependentUpon>CustomMasterDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomTabbedPage.xaml.cs">
+      <DependentUpon>CustomTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PostsPage.xaml.cs">
+      <DependentUpon>PostsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TabbedViews\Tab1Page.xaml.cs">
+      <DependentUpon>Tab1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TabbedViews\Tab2Page.xaml.cs">
+      <DependentUpon>Tab2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\BatteryStatusPage.xaml.cs">
+      <DependentUpon>BatteryStatusPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\PostsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CustomMasterDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CustomTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TabbedViews\Tab1Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TabbedViews\Tab2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BatteryStatusPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="PrismExample.Views.CustomTabbedPage"
+            xmlns:local="clr-namespace:PrismExample.Views.TabbedViews">
+    <TabbedPage.Children>
+        <local:Tab1Page />
+        <local:Tab2Page />
+    </TabbedPage.Children>
+</TabbedPage>

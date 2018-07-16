@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrismExample.Views.BatteryStatusPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Example to demonstrate the use of Dependency Service in Xamarin Forms"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Get Battery Status" 
+                      BackgroundColor="Black" TextColor="White"
+                      Command="{Binding GetBatteryStatusCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
