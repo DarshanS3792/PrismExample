@@ -6,10 +6,17 @@ using System.Windows.Input;
 
 namespace PrismExample.ViewModels
 {
-    public class HomePageViewModel : BindableBase
+    public class HomePageViewModel : BindableBase, INavigatedAware
     {
         INavigationService _navigationService; // Used to navigate from one page to another
         IPageDialogService _pageDialogService; // Used to display alert dialogs
+
+        private string _username;
+        public string UserName
+        {
+            get { return _username; }
+            set { SetProperty(ref _username, value); }
+        }
 
         private string _title;
         public string Title
@@ -41,9 +48,21 @@ namespace PrismExample.ViewModels
         async void GotoPostsPage()
         {
             var parameter = new NavigationParameters();
-            parameter.Add("MyParam", "Example to call an API service to get list of data"); // Adding parameters
+            parameter.Add("MyParam", "Example to call an API service to get list of data"); // Another way of passing parameters
 
-            await _navigationService.NavigateAsync("PostsPage", parameter); // Passing parameters to a page
+            await _navigationService.NavigateAsync("PostsPage", parameter);
+        }
+
+        public void OnNavigatedFrom(NavigationParameters parameters)
+        {
+        }
+
+        public void OnNavigatedTo(NavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("UserName"))
+            {
+                UserName = parameters.GetValue<string>("UserName");
+            }
         }
     }
 }

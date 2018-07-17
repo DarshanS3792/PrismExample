@@ -8,18 +8,23 @@
                 <StackLayout BackgroundColor="Silver" Padding="20">
                     <Button Text="Home Page" 
                               TextColor="White"
-                              BackgroundColor="Black" 
+                              BackgroundColor="DarkSlateBlue" 
                               Command="{Binding OnNavigateCommand}" 
                               CommandParameter="NavigationPage/HomePage"/>
                     <Button Text="Battery Status"  
                               TextColor="White"
-                              BackgroundColor="Black" 
+                              BackgroundColor="DarkSlateBlue" 
                               Command="{Binding OnNavigateCommand}" 
                               CommandParameter="NavigationPage/BatteryStatusPage"/>
                     <Button Text="Tabbed Page"  
                               TextColor="White"
-                              BackgroundColor="Black" 
+                              BackgroundColor="DarkSlateBlue" 
                               Command="{Binding OnNavigateCommand}" 
+                              CommandParameter="NavigationPage/CustomTabbedPage"/>
+                    <Button Text="Log Out"  
+                              TextColor="White"
+                              BackgroundColor="DarkSlateBlue" 
+                              Command="{Binding OnLogOutCommand}" 
                               CommandParameter="NavigationPage/CustomTabbedPage"/>
                 </StackLayout>
             </ContentPage.Content>
