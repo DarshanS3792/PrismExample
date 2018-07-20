@@ -89,6 +89,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\CurvedLabelRenderer.cs" />
     <Compile Include="DependencyServices\BatteryService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

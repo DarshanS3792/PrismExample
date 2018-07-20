@@ -21,11 +21,16 @@
                               BackgroundColor="DarkSlateBlue" 
                               Command="{Binding OnNavigateCommand}" 
                               CommandParameter="NavigationPage/CustomTabbedPage"/>
+                    <Button Text="Custom Renderer"  
+                              TextColor="White"
+                              BackgroundColor="DarkSlateBlue" 
+                              Command="{Binding OnNavigateCommand}" 
+                              CommandParameter="NavigationPage/CustomRendererExamplePage"/>
                     <Button Text="Log Out"  
                               TextColor="White"
                               BackgroundColor="DarkSlateBlue" 
-                              Command="{Binding OnLogOutCommand}" 
-                              CommandParameter="NavigationPage/CustomTabbedPage"/>
+                              Command="{Binding OnNavigateCommand}" 
+                              CommandParameter="NavigationPage/LoginPage"/>
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>

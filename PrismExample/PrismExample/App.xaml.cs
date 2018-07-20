@@ -33,6 +33,7 @@ namespace PrismExample
 
             containerRegistry.RegisterForNavigation<BatteryStatusPage, BatteryStatusPageViewModel>();
             containerRegistry.RegisterForNavigation<CustomTabbedPage>();
+            containerRegistry.RegisterForNavigation<CustomRendererExamplePage>();
         }
     }
 }

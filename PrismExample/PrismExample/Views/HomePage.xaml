@@ -4,7 +4,7 @@
              x:Class="PrismExample.HomePage"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="20">
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="20" Spacing="10">
             <!-- Place new controls here -->
             <Label Text="{Binding UserName, StringFormat='Welcome {0}'}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
             

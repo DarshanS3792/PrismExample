@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PrismExample.Views.CustomRendererExamplePage"
+             xmlns:renderer="clr-namespace:PrismExample.CustomRenderers">
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Label Text="Example demonstrating custom renderer" />
+
+            <Label Text="Simple Label" 
+                   TextColor="White"
+                   HeightRequest="40"  
+                   VerticalTextAlignment="Center"   
+                   BackgroundColor="Gray"  
+                   HorizontalTextAlignment="Center"/>
+
+            <renderer:CurvedLabel FontSize="14.5"  
+                                      CurvedBackgroundColor="Gray"  
+                                      TextColor="White"  
+                                      Text="Custom Label with rounded corner"  
+                                      HorizontalOptions="FillAndExpand"  
+                                      CurvedCornerRadius="16"  
+                                      HeightRequest="40"  
+                                      VerticalTextAlignment="Center"  
+                                      HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
