@@ -3,6 +3,7 @@ using Prism.Navigation;
 using PrismExample.Models;
 using PrismExample.Services;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace PrismExample.ViewModels
 {
@@ -44,9 +45,16 @@ namespace PrismExample.ViewModels
         private async void GetPosts()
         {
             var posts = await _postsService.GetPostsAsync(); // Retrieving list of data from API
+
+            //var updatePosts = posts.Where(i => i.title == "qui est esse").Select(i => { i.title = "Test"; return i; }); // Example to update an item using Linq
+
+            //var updatedPosts = new ObservableCollection<Post>(updatePosts);
+
             Posts = posts; // Assigning it to a binding property for binding data to the list in xaml
+
             IsBusy = false; // Once the data is retrieved stop the loader
         }
+
 
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
