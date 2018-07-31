@@ -6,13 +6,13 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Padding="20" Spacing="10">
-            <Label Text="{Binding UserName, StringFormat='Welcome {0}'}" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="{Binding UserName, StringFormat='Welcome {0}'}" FontSize="Large" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 
             <Label Text="{Binding Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Small"/>
 
             <Button Text="Display Alert" BackgroundColor="DarkSlateBlue" TextColor="White" Command="{Binding DisplayAlertCommand}"/>
 
-            <Button Text="Go to Posts Page" BackgroundColor="DarkSlateBlue" TextColor="White" Command="{Binding GotoPostsPageCommand}"/>
+            <Button Text="API call example" BackgroundColor="DarkSlateBlue" TextColor="White" Command="{Binding GotoPostsPageCommand}"/>
 
             <StackLayout x:Name="iOSLayout" Orientation="Vertical" IsVisible="false">
                 <Button x:Name="nameButtonStart" Text="Start" Clicked="OnStart"></Button>

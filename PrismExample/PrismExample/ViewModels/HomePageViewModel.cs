@@ -46,7 +46,7 @@ namespace PrismExample.ViewModels
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
 
-            Title = "This is an example demonstrating Prism framework in Xamarin.Forms";
+            Title = "This is an example demonstrating PRISM framework in Xamarin.Forms, explore different examples in the menu as well :)";
 
             DisplayAlertCommand = new DelegateCommand(DisplayAlert); // Assigning a function to command
 
