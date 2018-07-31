@@ -25,6 +25,19 @@ namespace PrismExample.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
+        private string _text;
+        public string Text
+        {
+            get { return _text; }
+            set { SetProperty(ref _text, value); }
+        }
+
+        private bool _isVoiceRecognised;
+        public bool IsVoiceRecognised
+        {
+            get { return _isVoiceRecognised; }
+            set { SetProperty(ref _isVoiceRecognised, value); }
+        }
         public ICommand DisplayAlertCommand { get; set; } // Used for button clicks
         public ICommand GotoPostsPageCommand { get; set; }
 
@@ -37,7 +50,7 @@ namespace PrismExample.ViewModels
 
             DisplayAlertCommand = new DelegateCommand(DisplayAlert); // Assigning a function to command
 
-            GotoPostsPageCommand = new DelegateCommand(GotoPostsPage); 
+            GotoPostsPageCommand = new DelegateCommand(GotoPostsPage);
         }
 
         async void DisplayAlert()
@@ -51,6 +64,39 @@ namespace PrismExample.ViewModels
             parameter.Add("MyParam", "Example to call an API service to get list of data"); // Another way of passing parameters
 
             await _navigationService.NavigateAsync("PostsPage", parameter);
+        }
+
+        public async void GoToVoiceRecognisedPage()
+        {
+            if (!string.IsNullOrEmpty(Text))
+            {
+                var text = Text.ToUpper();
+
+                if (text.Contains("POST"))
+                {
+                    GotoPostsPage();
+                }
+                else if (text.Contains("BATTERY"))
+                {
+                    await _navigationService.NavigateAsync("BatteryStatusPage");
+                }
+                else if (text.Contains("TAB"))
+                {
+                    await _navigationService.NavigateAsync("CustomTabbedPage");
+                }
+                else if (text.Contains("RENDERER"))
+                {
+                    await _navigationService.NavigateAsync("CustomRendererExamplePage");
+                }
+                else if (text.Contains("LOGOUT"))
+                {
+                    await _navigationService.NavigateAsync("LoginPage");
+                }
+                else if (!text.Contains("POST") && !text.Contains("BATTERY") && !text.Contains("TAB") && !text.Contains("RENDERER") && !text.Contains("LOGOUT"))
+                {
+                    await _pageDialogService.DisplayAlertAsync("Sorry!", "I can't navigate there", "Ok");
+                }
+            }
         }
 
         public void OnNavigatedFrom(NavigationParameters parameters)

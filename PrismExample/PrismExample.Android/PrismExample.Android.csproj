@@ -65,7 +65,9 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\ActivityResultEventArgs.cs" />
     <Compile Include="CustomRenderers\CurvedLabelRenderer.cs" />
+    <Compile Include="CustomRenderers\VoiceButtonRenderer.cs" />
     <Compile Include="DependencyServices\BatteryService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -99,13 +101,15 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrismExample\PrismExample.csproj">
       <Project>{E30B5D2C-6FF2-4946-9473-3A6B4B21553B}</Project>
       <Name>PrismExample</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\microphone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

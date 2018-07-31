@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="CustomRenderers\CurvedLabelRenderer.cs" />
     <Compile Include="DependencyServices\BatteryService.cs" />
+    <Compile Include="DependencyServices\SpeechToTextImplementation.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -167,5 +168,7 @@
       <Name>PrismExample</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\microphone.png" />
+  </ItemGroup>
 </Project>

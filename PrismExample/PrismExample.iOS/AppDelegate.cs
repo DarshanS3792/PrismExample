@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using Prism;
 using Prism.Ioc;
 using PrismExample.DependencyServices;
@@ -27,6 +23,7 @@ namespace PrismExample.iOS
         //
 
         static BatteryService batteryService = new BatteryService();
+        static SpeechToTextImplementation speechToTextImplementation = new SpeechToTextImplementation();
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
@@ -42,6 +39,7 @@ namespace PrismExample.iOS
             public void RegisterTypes(IContainerRegistry containerRegistry)
             {
                 containerRegistry.RegisterInstance<IBatteryService>(batteryService);
+                containerRegistry.RegisterInstance<ISpeechToText>(speechToTextImplementation);
             }
         }
     }

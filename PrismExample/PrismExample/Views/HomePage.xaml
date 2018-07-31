@@ -2,17 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrismExample.HomePage"
+             xmlns:local="clr-namespace:PrismExample.CustomRenderers"
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Padding="20" Spacing="10">
-            <!-- Place new controls here -->
-            <Label Text="{Binding UserName, StringFormat='Welcome {0}'}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            
-            <Label Text="{Binding Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Small" />
+            <Label Text="{Binding UserName, StringFormat='Welcome {0}'}" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+            <Label Text="{Binding Title}" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" FontSize="Small"/>
 
             <Button Text="Display Alert" BackgroundColor="DarkSlateBlue" TextColor="White" Command="{Binding DisplayAlertCommand}"/>
 
             <Button Text="Go to Posts Page" BackgroundColor="DarkSlateBlue" TextColor="White" Command="{Binding GotoPostsPageCommand}"/>
+
+            <StackLayout x:Name="iOSLayout" Orientation="Vertical" IsVisible="false">
+                <Button x:Name="nameButtonStart" Text="Start" Clicked="OnStart"></Button>
+                <Button IsEnabled="false" x:Name="nameButtonStop" Text="Stop" Clicked="OnStop"></Button>
+            </StackLayout>
+
+            <StackLayout x:Name="androidLayout" IsVisible="false">
+                <local:VoiceButton x:Name="voiceButton" Text="Record" Image="microphone.png" ContentLayout="Top,0" BackgroundColor="White" IsVisible="true" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
