@@ -28,11 +28,8 @@ namespace PrismExample
                     androidLayout.IsVisible = true;
                     voiceButton.OnTextChanged += (s) =>
                     {
-                        if (!string.IsNullOrEmpty(s))
-                        {
-                            ((HomePageViewModel)BindingContext).Text = s; // Accessing binding context from view model
-                            ((HomePageViewModel)BindingContext).GoToVoiceRecognisedPage();
-                        }
+                        ((HomePageViewModel)BindingContext).Text = s; // Accessing binding context from view model
+                        ((HomePageViewModel)BindingContext).GoToVoiceRecognisedPage();
                     };
                     break;
             }
@@ -54,11 +51,8 @@ namespace PrismExample
 
         public void OnTextChange(object sender, EventArgsVoiceRecognition e)
         {
-            if (!string.IsNullOrEmpty(e.Text))
-            {
-                ((HomePageViewModel)BindingContext).Text = e.Text;
-                ((HomePageViewModel)BindingContext).GoToVoiceRecognisedPage();
-            }
+            ((HomePageViewModel)BindingContext).Text = e.Text;
+            ((HomePageViewModel)BindingContext).GoToVoiceRecognisedPage();
 
             if (e.IsFinal)
             {
